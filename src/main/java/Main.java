@@ -1,41 +1,22 @@
-import java.util.Optional;
-import java.util.OptionalInt;
-import java.util.logging.Logger;
-
 import com.nametagedit.plugin.NametagEdit;
 import com.nametagedit.plugin.api.data.FakeTeam;
-import com.nametagedit.plugin.api.data.INametag;
 import com.nametagedit.plugin.api.events.NametagFirstLoadedEvent;
-import com.nametagedit.plugin.hooks.HookLuckPerms;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
-import net.luckperms.api.model.group.Group;
-import net.luckperms.api.model.user.User;
 import net.luckperms.api.node.Node;
 import net.luckperms.api.node.NodeType;
 import net.luckperms.api.node.types.MetaNode;
-import net.luckperms.api.query.QueryOptions;
 import net.milkbowl.vault.chat.Chat;
-import net.milkbowl.vault.economy.Economy;
-import net.milkbowl.vault.economy.EconomyResponse;
 import net.milkbowl.vault.permission.Permission;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-import org.bukkit.command.defaults.BukkitCommand;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scoreboard.DisplaySlot;
-import org.bukkit.scoreboard.Scoreboard;
-import org.bukkit.scoreboard.ScoreboardManager;
-import org.bukkit.scoreboard.Team;
+
+import java.util.OptionalInt;
 public class Main extends JavaPlugin implements Listener {
     public static Permission perms = null;
     public static Chat chat = null;
@@ -46,11 +27,11 @@ public class Main extends JavaPlugin implements Listener {
         perms = getServer().getServicesManager().getRegistration(Permission.class).getProvider();
         chat = getServer().getServicesManager().getRegistration(Chat.class).getProvider();
         Bukkit.getPluginManager().registerEvents(this, this);
-        Bukkit.getConsoleSender().sendMessage("Plugin successfully started");
+        Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Plugin successfully started");
     }
     @Override
     public void onDisable() {
-        Bukkit.getConsoleSender().sendMessage("Plugin successfully stopped");
+        Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "Plugin successfully stopped");
     }
     @EventHandler
     public void onJoin(PlayerJoinEvent e)  {
