@@ -56,6 +56,7 @@ public class Main extends JavaPlugin implements Listener {
     public void onJoin(PlayerJoinEvent e)  {
         String group = perms.getPrimaryGroup(e.getPlayer());
         NametagEdit.getApi().setPrefix(e.getPlayer(), chat.getGroupPrefix(e.getPlayer().getWorld(), group));
+
     }
     @EventHandler
     public void onChat(AsyncPlayerChatEvent e) {
