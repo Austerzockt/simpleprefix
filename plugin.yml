@@ -1,0 +1,9 @@
+name: simpleprefix
+author: Austerzockt
+version: 1.0
+main: Main
+description: "Just a simple messy-coded solution to an annoying problem (NAMETAGS)"
+depend:
+  - LuckPerms
+  - NametagEdit
+  - Vault
